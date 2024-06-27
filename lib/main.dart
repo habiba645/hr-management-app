@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+// main.dart
+import 'package:flutter/material.dart';import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hr_management_app/app_router.dart';
 import 'package:hr_management_app/business_logic/cubit/user_archive_cubit.dart';
@@ -7,6 +8,11 @@ import 'package:hr_management_app/presentation/components/theme.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:hr_management_app/presentation/screens/transactions/Penalties.dart';
+import 'package:hr_management_app/presentation/screens/transactions/Promotions.dart';
+import 'package:hr_management_app/presentation/screens/transactions/bonuses.dart';
+import 'package:hr_management_app/presentation/screens/transactions/transactions.dart';
+import 'package:hr_management_app/presentation/screens/transactions/vacations.dart';
 
 void main() async {
   // this was for testing user authentication and will be used later
@@ -47,6 +53,13 @@ class HRManagementApp extends StatelessWidget {
               onSurface: clr(1),
             )),
         initialRoute: '/admin_home',
+        routes: {
+        "transactions": (context) =>  Transactions(),
+        "Penalties": (context) =>  Penalties(),
+        "Bonuses": (context) =>  Bonuses(),
+        "Vacations": (context) =>  Vacations(),
+        "Promotions": (context) =>  Promotions(),
+      },
         onGenerateRoute: appRouter.generateRoute,
         // for making the app RTL
         localizationsDelegates: [
